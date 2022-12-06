@@ -1,0 +1,52 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://6yfp0iys97.execute-api.ap-southeast-1.amazonaws.com/v0
+info:
+  description: Data API documentation using Swagger
+  version: "1.0.0"
+  title: Doris Analytics
+  contact:
+    email: bizjun@nus.edu.sg
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: collections
+    description: Get collectin-releated data sources
+paths:
+  /dynamodbmanager:
+    post:
+      tags:
+        - collections
+      summary: get collection-related information
+      operationId: getTopCollections
+      description: Get top collections
+      responses:
+        '201':
+          description: collections retrieved
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: 'invalid input, object invalid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getTopCollections'
+        description: Get collections
+components:
+  schemas:
+    getTopCollections:
+      type: object
+      required:
+        - operation
+        - tableName
+      properties:
+        operation:
+          type: string
+          example: read
+        tableName:
+          type: string
+          example: top_collections

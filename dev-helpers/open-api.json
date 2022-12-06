@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Swagger API documentation for Doris Analytics",
+    "version": "1.0.0",
+    "title": "Swagger Doris",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "bizjun@nus.edu.sg"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "6yfp0iys97.execute-api.ap-southeast-1.amazonaws.com",
+  "basePath": "/v0/dynamodbmanager",
+  "tags": [
+    {
+      "name": "Asset Value Analysis",
+      "description": "Asset information"
+    },
+    {
+      "name": "Collections",
+      "description": "Collection information"
+    },
+    {
+      "name": "Wallets",
+      "description": "Wallet information"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "dynamodbmanager": {
+      "post": {
+        "tags": [
+          "Collections"
+        ],
+        "summary": "Get top collections",
+        "description": "",
+        "operationId": "",
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "order placed for purchasing the pet",
+            "required": true,
+            "schema": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "securityDefinitions": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      },
+      "petstore_auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
+        "flow": "implicit",
+        "scopes": {
+          "read:pets": "read your pets",
+          "write:pets": "modify pets in your account"
+        }
+      }
+    }
+  }
+}
