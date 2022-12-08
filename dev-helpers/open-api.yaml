@@ -3,12 +3,14 @@ servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
     url: https://6yfp0iys97.execute-api.ap-southeast-1.amazonaws.com/v0
+  - description: Dogs API
+    url: https://dog.ceo/api/breeds/image
 info:
   description: Data API documentation using Swagger
   version: "1.0.0"
   title: Doris Analytics
   contact:
-    email: bizjun@nus.edu.sg
+    email: dorisanalyticsplatform@gmail.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -16,6 +18,21 @@ tags:
   - name: collections
     description: Get collectin-releated data sources
 paths:
+  /random:
+    get:
+      tags:
+        - dogs
+      summary: get random dog information
+      operationId: getRandomDogInfo
+      description: get random dog information
+      responses:
+        '201':
+          description: collections retrieved
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: 'invalid input, object invalid'
+
   /dynamodbmanager:
     post:
       tags:
