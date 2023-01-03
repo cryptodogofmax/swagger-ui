@@ -3,6 +3,8 @@ servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
     url: https://6yfp0iys97.execute-api.ap-southeast-1.amazonaws.com/v0
+  - url: https://api.opensea.io/api/v1/
+  - url: https://api.cryptoslam.io/im6pi8nxcs120nhb/v1
   - description: Dogs API
     url: https://dog.ceo/api/breeds/image
 info:
@@ -16,8 +18,65 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: collections
-    description: Get collectin-releated data sources
+  - name: opensea
+  - name: cryptoslam
 paths:
+  /assets:
+    get:
+      tags:
+        - opensea
+      summary: Get recommendations from opensea api
+      operationId: Get asset recommendations
+      description: Get assets from opensea
+      responses: 
+        '201':
+          description: Asset retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+  /collections:
+    get:
+      tags:
+        - opensea
+      summary: Get collection recommendations from opensea api
+      operationId: Get collection recommendations
+      description: Get recommendations for assets, collections, artists 
+      responses: 
+        '201':
+          description: Collection retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+  /collections/top-100:
+    get:
+      tags:
+        - cryptoslam
+      summary: Get top 100 trending collections
+      operationId: Get top 100 trending collections
+      description: Get top 100 trending collections
+      responses: 
+        '201':
+          description: Collection retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+  /sales/top-100:
+    get:
+      tags:
+        - cryptoslam
+      summary: Get top 100 sales collections
+      operationId: Get top 100 sales collections
+      description: Get top 100 sales collections
+      responses: 
+        '201':
+          description: Collection retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
   /random:
     get:
       tags:
