@@ -1,4 +1,82 @@
----
-url: "https://petstore.swagger.io/v2/swagger.json"
-dom_id: "#swagger-ui"
-validatorUrl: "https://validator.swagger.io/validator"
+openapi: 3.0.3
+info:
+  title: Doris Analytics - API Data Sources
+  description: |-
+    A systemic organized collection of all API sources used for Doris Analytics
+  termsOfService: https://www.dorisanalytics-dev1.link/
+  contact:
+    email: xhoni.sh@nus.edu.sg
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about our project design
+  url: https://www.figma.com/file/1JTBSbyCpPoPlZLlEn73yb/DorisDevPhase2?node-id=0%3A1&t=TDl6EwqSmmGlgvCs-1 
+servers:
+  - url: https://6yfp0iys97.execute-api.ap-southeast-1.amazonaws.com/v0
+  - url: https://api.opensea.io/api/v1/
+  - url: https://api.cryptoslam.io/im6pi8nxcs120nhb/v1
+
+
+      
+paths:
+  /assets:
+    get:
+      tags:
+        - asset recommendations (Open Sea)
+      summary: Get recommendations
+      operationId: Get asset recommendations
+      description: Get recommendations for assets, collections, artists 
+      responses: 
+        '201':
+          description: Asset retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+  /collections:
+    get:
+      tags:
+        - collection recommendations (Open Sea)
+      summary: Get collection recommendations
+      operationId: Get collection recommendations
+      description: Get recommendations for assets, collections, artists 
+      responses: 
+        '201':
+          description: Collection retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+  /collections/top-100:
+    get:
+      tags:
+        - trending collections (CryptoSlam)
+      summary: Get top 100 trending collections
+      operationId: Get top 100 trending collections
+      description: Get top 100 trending collections
+      responses: 
+        '201':
+          description: Collection retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+  /sales/top-100:
+    get:
+      tags:
+        - sales collections (CryptoSlam)
+      summary: Get top 100 sales collections
+      operationId: Get top 100 sales collections
+      description: Get top 100 sales collections
+      responses: 
+        '201':
+          description: Collection retrieved
+        '400':
+          description: 'Invalid Input'
+        '409':
+          description: 'Invalid Input, object invalid'
+
+  
+  
